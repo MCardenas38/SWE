@@ -9,6 +9,7 @@ import Delivery from "./pages/Delivery";
 import Cook from "./pages/Cook";
 import SalesPerson from "./pages/SalesPerson";
 import {Nav, Navbar, Row, Col} from 'react-bootstrap';
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Col className="list"><NavLink className="link" exact to="/customer">Customer</NavLink></Col>
               <Col className="list"><NavLink className="link" to="/manager">Manager</NavLink></Col>
               <Col className="list"><NavLink className="link" to="customer/matty">Restaurant Page</NavLink></Col>
+              <Col className="list"><NavLink className="link" to="/register">Regisster</NavLink></Col>
             </Row>
           </Nav>
           </Navbar>
@@ -34,6 +36,7 @@ function App() {
           <Route exact path="/customer/:restuarant" component={Restaurant} />
           <Route exact path="/Cook" component={Cook} />
           <Route exact path="/salesperson" component={SalesPerson} />
+          <Route exact path="/register" component={Register} />
         </Switch>
       </div>
     </Router>

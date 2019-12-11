@@ -8,23 +8,31 @@ import Restaurant from "./pages/Restaurant";
 import Delivery from "./pages/Delivery";
 import Cook from "./pages/Cook";
 import SalesPerson from "./pages/SalesPerson";
-import {Nav, Navbar, Row, Col} from 'react-bootstrap';
+import {Nav, Navbar, Row, Col, Button} from 'react-bootstrap';
 import Register from "./pages/Register";
+import "./App.css";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStroopwafel } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faStroopwafel)
 
 function App() {
   return (
     <Router>
       <div>
-        
-          <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home">BinaryBites</Navbar.Brand>
+
+          <Navbar bg="dark" variant="primary">
+          <Navbar.Brand><img src="https://pbs.twimg.com/media/ELhJNXsX0AA7CUP?format=png&name=small" height="37px" width="90px" alt="fuck"/></Navbar.Brand>
           <Nav>
             <Row className="header">
-              <Col className="list"><NavLink className="link" exact to="/">Login</NavLink></Col>
+              <Col className="signout"><Button class="btn btn-primary"><NavLink className="link" exact to="/">Logout</NavLink></Button></Col>
+              {/* <Col className="list"><NavLink className="link" exact to="/">Login</NavLink></Col>
               <Col className="list"><NavLink className="link" exact to="/customer">Customer</NavLink></Col>
               <Col className="list"><NavLink className="link" to="/manager">Manager</NavLink></Col>
               <Col className="list"><NavLink className="link" to="customer/matty">Restaurant Page</NavLink></Col>
-              <Col className="list"><NavLink className="link" to="/register">Regisster</NavLink></Col>
+              <Col className="list"><NavLink className="link" to="/register">Regisster</NavLink></Col> */}
+
             </Row>
           </Nav>
           </Navbar>

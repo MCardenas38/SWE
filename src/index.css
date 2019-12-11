@@ -14,6 +14,7 @@ code {
 
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
+
 * {
   box-sizing: border-box;
 }
@@ -46,7 +47,6 @@ Col{
   background-color: white;
   justify-content: center;
   vertical-align: center;
-  margin-top: 10%;
   margin-left: 5%;
   margin-right: 30px;
   border-radius: 3%;

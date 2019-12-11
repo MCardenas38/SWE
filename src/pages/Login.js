@@ -121,14 +121,14 @@ class Login extends Component {
         {this.renderRedirect()}
         <Row>
           <Col>
-            <img src="https://eilonpaz.com/wp-content/uploads/2016/01/Eilon_Paz_0018-853x1280.jpg" alt="fuck" height="100%" width="110%"/>
+            <img src="https://eilonpaz.com/wp-content/uploads/2016/01/Eilon_Paz_0018-853x1280.jpg" alt="fuck" height="70%" width="90%"/>
           </Col>
           <Col className="form">
             <FormGroup>
           <h3>Sign In</h3>
           <div className="form-group">
-            <label>Email address</label>
-            <input type="email" className="form-control" placeholder="Enter email" onChange={this.handleChange_username} />
+            <label>Username</label>
+            <input type="email" className="form-control" placeholder="Enter username" onChange={this.handleChange_username} />
           </div>
           <div className="form-group">
             <label>Password</label>

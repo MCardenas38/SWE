@@ -9,12 +9,13 @@ import {
 import PropTypes from 'prop-types'
 import {
 Card, Row, Col, CardTitle, CardText, CardDeck,
-CardSubtitle, CardBody, Progress, CardHeader,
+CardSubtitle, CardBody, Progress, CardHeader, CardFooter,
 Button, Table, Container,Modal, ModalHeader, ModalBody, ModalFooter
 } from 'reactstrap';
 import { CardColumns } from 'react-bootstrap';
 import { breakStatement, throwStatement } from '@babel/types';
 import "../Manager.css";
+import "./Restaurant.css";
 import Sm_container from "../components/sm_container_div";
 import Lg_container from "../components/lg_container_div";
 import Axios from "axios";
@@ -189,14 +190,30 @@ class Restuarant extends Component{
     render(){
         return(
             <>
-                <Container className="mt--7" fluid>
+                <Container>
                     <Row>
+                    {this.state.registered? <></>: <Button outline color="danger" onClick={this.handle_Reg}>Register</Button>}
+                    
+                    <Col>
+                    <Card classname="top3">
+        <CardHeader><h6>Your Top 3 Foods:</h6></CardHeader>
+                        <CardBody>
+                        <Row>
+                            {this.state.top_3&&this.state.registered?(this.state.top_3.map((food,index)=>{
+                                return(<Col>{food.food_name}</Col>)
+                            })):<></>}
+                            </Row>
+                            
+                        </CardBody>
+                        <CardFooter>Order them below!</CardFooter>
+                    </Card>
+                    </Col>
                     <Col xl="4">
                         <Card className="shadow">
                         <CardHeader className="border-0">
                             <Row className="align-items-center">
                             <div className="col">
-                                <h3 className="mb-0">Menu</h3>
+                                <h3>Menu</h3>
                             </div>
                             <div className="col text-right">
                             </div>
@@ -226,17 +243,15 @@ class Restuarant extends Component{
                             </tbody>
                         </Table>
                         </Card>
-                    </Col>
-
-                    <Col xl="4">
+                    
                         <Card className="shadow">
                         <CardHeader className="border-0">
                             <Row className="align-items-center">
                             <div className="col text-left">
-                                <h3 className="mb-0">Order</h3>
+                                <h5 className="mb-0">Order</h5>
                             </div>
                             <div className="col text-right">
-                                <h3 className="mb-0">Total: ${this.state.total}.00</h3>
+                                <h5 className="mb-0">Total: ${this.state.total}.00</h5>
                             </div>
                             <div className="col text-right">
                                 <Button color="info" onClick={this.handleOrder}>Buy</Button>
@@ -271,15 +286,6 @@ class Restuarant extends Component{
                         </Card>
                     </Col>
                     </Row>
-                    <Card>
-                        <CardBody>
-                            {this.state.top_3&&this.state.registered?(this.state.top_3.map((food,index)=>{
-                                return(<CardText>{food.food_name}</CardText>)
-                            })):<></>}
-                            
-                        </CardBody>
-                    </Card>
-                    {this.state.registered? <></>: <Button outline color="danger" onClick={this.handle_Reg}>Register</Button>}
                 </Container>
                 <div>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>

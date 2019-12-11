@@ -5,7 +5,9 @@ import Login from "./pages/Login";
 import Customer from "./pages/Customer";
 import Manager from "./pages/Manager";
 import Restaurant from "./pages/Restaurant";
-import Delivery from "./pages/Delivery"
+import Delivery from "./pages/Delivery";
+import Cook from "./pages/Cook";
+import SalesPerson from "./pages/SalesPerson";
 import {Nav, Navbar, Row, Col} from 'react-bootstrap';
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
           <Route exact path="/manager" component={Manager} />
           <Route exact path="/delivery" component={Delivery} />
           <Route exact path="/customer/:restuarant" component={Restaurant} />
+          <Route exact path="/Cook" component={Cook} />
+          <Route exact path="/salesperson" component={SalesPerson} />
         </Switch>
       </div>
     </Router>

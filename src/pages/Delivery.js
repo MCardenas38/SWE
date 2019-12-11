@@ -168,14 +168,13 @@ class Customer extends Component{
                       <Table className="align-items-center table-flush" responsive>
                         <tbody>
                           {/* <Link to={`customer/${props}`}> */}
-                          {this.state.bids? (this.state.bids.map((order,index)=>{
+                          {this.state.your_delivery? (this.state.your_delivery.map((order,index)=>{
                                 return(
-                                    <tr >
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                  <tr > 
+                                    <td>{order.restaurant_name}</td>
+                                    <td>{order.address}</td>
+                                    <td>{order.order_id}</td>
+                                  </tr>
                                 )
                           })): <></>
                         }

@@ -7,6 +7,8 @@ var Restaurant= sequelize.define("restaurants",{
         type:Sequelize.STRING,
         primaryKey: true
     },
+    cook_id: Sequelize.INTEGER,
+    salesperson_id: Sequelize.INTEGER,
     manager_id: Sequelize.INTEGER,
     address: Sequelize.STRING,
     img_src: Sequelize.STRING

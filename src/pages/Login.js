@@ -77,6 +77,26 @@ class Login extends Component{
               }
           }} />
         }
+        else if (this.state.redirect && this.state.u_role === 'cook') {
+          return <Redirect to={{
+              pathname: '/cook',
+              state:{
+                u_name: this.state.u_name,
+                u_role: this.state.u_role,
+                user_id: this.state.user_id
+              }
+          }} />
+        }
+        else if (this.state.redirect && this.state.u_role === 'salesperson') {
+          return <Redirect to={{
+              pathname: '/salesperson',
+              state:{
+                u_name: this.state.u_name,
+                u_role: this.state.u_role,
+                user_id: this.state.user_id
+              }
+          }} />
+        }
         else{
           console.log(this.state);
         }

@@ -3,7 +3,7 @@ var Sequelize = require("sequelize");
 
 var sequelize = new Sequelize("binary_bite", "root", "root", {
   host: "localhost",
-  port: 3307,
+  port: 3306,
   dialect: "mysql",
   pool: {
     max: 5,

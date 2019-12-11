@@ -9,7 +9,8 @@ var Users = require("../models/users");
 var Registered = require("../models/registered");
 var Restaurant = require("../models/restaurant");
 var Menu= require("../models/menu");
-var Order= require("../models/order")
+var Order= require("../models/order");
+var Supply= require("../models/supply");
 
 const Op = Sequelize.Op;
 
@@ -212,6 +213,91 @@ module.exports = function(app){
             res.end();
         })
       res.end();
+    });
+
+    app.get("/api/supply",function(req,res){
+      Supply.findAll({
+          where: {
+            restaurant_name: req.query.restaurant_name
+          }
+        }).then(function(results) {
+          console.log(results);
+          res.json(results);
+      });
+    });
+
+    app.post("/api/register", function (req, res) {
+      console.log(req);
+      Users.create({
+        u_name: req.query.u_name,
+        username: req.query.username,
+        u_password: req.query.u_password
+      }).then(function (results) {
+        res.json(results);
+      });
+    });
+
+    app.get("/api/restaurant_name_cook", function (req, res) {
+      Restaurant.findOne({
+        where: {
+          cook_id: req.query.cook_id
+        }
+      }).then(function (results) {
+        res.json(results);
+      });
+    });
+  
+    app.get("/api/restaurant_name_sales",function(req,res){
+        Restaurant.findOne({
+            where: {
+              salesperson_id: req.query.salesperson_id
+            }
+          }).then(function(results) {
+            res.json(results);
+        });
+      });
+
+    app.delete("/api/remove_menu", function (req, res) {
+      console.log(req);
+      Menu.destroy({
+        where: {
+          food_id: req.query.food_id
+        }
+      }).then(function (results) {
+        res.json(results);
+      });
+
+      app.get("/api/restaurant_name_cook",function(req,res){
+        Restaurant.findOne({
+            where: {
+              cook_id: req.query.cook_id
+            }
+          }).then(function(results) {
+            res.json(results);
+        });
+      });
+    });
+  
+    app.post("/api/menu_add", function (req, res) {
+      console.log(req);
+      Menu.create({
+        food_name: req.body.food_name,
+        restaurant_name: req.body.restaurant_name,
+        price: req.body.price
+      }).then(function (results) {
+        res.json(results);
+      });
+    });
+  
+    app.post("/api/supply_add", function (req, res) {
+      console.log(req);
+      Supply.create({
+        supply_name: req.body.supply_name,
+        restaurant_name: req.body.restaurant_name,
+        supply_price: req.body.supply_price
+      }).then(function (results) {
+        res.json(results);
+      });
     });
 
 };

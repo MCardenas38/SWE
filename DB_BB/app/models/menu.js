@@ -5,6 +5,7 @@ var sequelize = require("../config/connection.js");
 var Menu= sequelize.define("menus",{
     food_id: Sequelize.INTEGER,
     food_name: Sequelize.STRING,
+    food_count: Sequelize.INTEGER,
 	restaurant_name:{
         type: Sequelize.STRING,
         primaryKey: true

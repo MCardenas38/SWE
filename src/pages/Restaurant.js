@@ -30,9 +30,12 @@ class Restuarant extends Component{
             restuarant_name: this.props.location.state.restaurant_name,
             menu: [],
             order: [],
+            top_3:[],
             total: 0,
             modal: false, 
-            setModal: false
+            setModal: false,
+            registered: false,
+            style:""
         };
       }
 
@@ -46,21 +49,65 @@ class Restuarant extends Component{
         this.setState({
           menu: res.data
         });
-        // console.log(this.state.restuarant_list);
         console.log(res.data);
+        Axios.get("/api/top_3").then(res2=>{
+            console.log(res2);
+            var temp= this.state.top_3;
+            temp.push(res2.data[0]);
+            temp.push(res2.data[1]);
+            temp.push(res2.data[2]);
+            this.setState({
+                top_3: temp
+            });
+            console.log(this.state.top_3);
+            Axios.get("/api/restaurant_reg",{
+                params:{
+                    restaurant_name: this.state.restuarant_name,
+                    customer_id: this.state.user_id,
+                }
+            }).then(res3=>{
+                console.log(res3);
+                if(res3.data!==null){
+                    this.setState({
+                        registered: true
+                    });
+                    console.log(this.state.registered)
+                }
+            })
+        })
       });
     }
 
     handleAdd= id=>{
         let item= this.state.menu[id];
+        console.log(item);
         let total= this.state.total;
         let order= this.state.order;
+        let count= item.food_count + 1;
         total += item.price;
-        order.push({food_name: item.food_name, price:item.price});
+        order.push({food_name: item.food_name, price:item.price,food_id: item.food_id});
         this.setState({
             order: order,
             total: total
         });
+        Axios.put("/api/food_count",{
+            food_id: item.food_id,
+            food_count: count
+        }).then(res =>{
+            Axios.get("/api/menu",{
+                params:{
+                    restaurant_name: this.state.restuarant_name
+                }
+            })
+            .then(res=>{
+                this.setState({
+                menu: res.data
+                });
+            // console.log(this.state.restuarant_list);
+            console.log(res.data);
+            });
+            console.log(res);
+        })
     }
 
     handleRemove= id=>{
@@ -68,6 +115,14 @@ class Restuarant extends Component{
         let length= order.length;
         let item= order[id];
         let total= this.state.total;
+        let count;
+        for(var i=0;i<this.state.menu.length;++i){
+            if(item.food_id===this.state.menu[i].food_id){
+                count= this.state.menu[i].food_count;
+                break;
+            }
+        }
+        count -= 1;
         total -= item.price;
         if(id===0){
             order.shift();
@@ -82,6 +137,12 @@ class Restuarant extends Component{
             order: order,
             total: total
         });
+        Axios.put("/api/food_count",{
+            food_id: item.food_id,
+            food_count: count
+        }).then(res =>{
+            console.log(res);
+        })
     }
 
     handleOrder= () => {
@@ -109,6 +170,19 @@ class Restuarant extends Component{
             modal: modal,
             setModal: setModal
         });
+    }
+
+    handle_Reg= ()=>{
+        Axios.post("/api/restaurant_reg",{
+            customer_id: this.state.user_id,
+            customer_name: this.state.u_name,
+            restaurant_name: this.state.restuarant_name,
+        }).then(res=>{
+            console.log(res);
+            this.setState({
+                style: {opacity: "0"}
+            })
+        })
     }
 
 
@@ -179,7 +253,7 @@ class Restuarant extends Component{
                                                 <th className="col text-left">{item.food_name}</th>
                                                 <td></td>
                                                 <td className="col text-right">
-                                                    <Button outline color="danger" onClick={()=>{this.handleRemove(index)}}>Remove</Button>
+                                                    <Button outline color="danger" style={this.style} onClick={()=>{this.handleRemove(index)}}>Remove</Button>
                                                 </td>
                                             </tr>
                                         )
@@ -197,6 +271,15 @@ class Restuarant extends Component{
                         </Card>
                     </Col>
                     </Row>
+                    <Card>
+                        <CardBody>
+                            {this.state.top_3&&this.state.registered?(this.state.top_3.map((food,index)=>{
+                                return(<CardText>{food.food_name}</CardText>)
+                            })):<></>}
+                            
+                        </CardBody>
+                    </Card>
+                    {this.state.registered? <></>: <Button outline color="danger" onClick={this.handle_Reg}>Register</Button>}
                 </Container>
                 <div>
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>

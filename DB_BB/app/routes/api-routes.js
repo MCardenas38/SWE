@@ -300,4 +300,51 @@ module.exports = function(app){
       });
     });
 
-};
+    app.put("/api/food_count",function(req,res){
+      console.log(req);
+      Menu.update({
+        food_count: req.body.food_count
+      }, {
+        where: {
+          food_id: req.body.food_id
+         } 
+      })
+        .then(updatedMax => {
+            console.log(updatedMax);
+            res.end();
+        })
+      res.end();
+    });
+
+    app.get("/api/top_3",function(req,res){
+      Menu.findAll({
+          order: [
+            ['food_count', 'DESC']
+          ]
+        }).then(function(results) {
+          res.json(results);
+      });
+    });
+
+    app.get("/api/restaurant_reg",function(req,res){
+      Registered.findOne({
+          where: {
+            restaurant_name: req.query.restaurant_name,
+            customer_id: req.query.customer_id,
+          }
+        }).then(function(results) {
+          res.json(results);
+      });
+    });
+
+    app.post("/api/restaurant_reg", function (req, res) {
+      Registered.create({
+        customer_id: req.body.customer_id,
+        customer_name: req.body.customer_name,
+        restaurant_name: req.body.restaurant_name,
+      }).then(function (results) {
+        res.json(results);
+      });
+    });
+
+  };

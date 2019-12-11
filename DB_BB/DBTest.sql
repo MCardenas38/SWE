@@ -63,7 +63,7 @@ INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Kevin Cardenas
 INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Someone','someone','abcd1234','customer');
 INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Ramsey','ram01','abcd1234','cook');
 INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Mike','mike07','abcd1234','salesperson');
-INSERT INTO users (u_name, username, u_password, u_role) VALUES ('d','d','d','delivery');
+INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Davey','dav19','abcd1234','delivery');
 
 INSERT INTO restaurants (restaurant_name, manager_id, cook_id, salesperson_id, address, img_src) VALUES ('El Restaurante',2,4,5, '30-49 77th street East Elmhurst', 'https://pbs.twimg.com/profile_images/378800000097312368/ac56ba276bf14ab06d3da5b00c88b151.jpeg');
 

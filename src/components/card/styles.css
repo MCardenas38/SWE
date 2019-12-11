@@ -1,0 +1,19 @@
+.big {
+    width: 50%;
+    margin-left: 6%;
+}
+
+.mediaHold {
+    width: 15%;
+    
+}
+.title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 800px;
+};
+.orderbtn{
+    float: right;
+}
+Card {
+    overflow: auto;
+  }

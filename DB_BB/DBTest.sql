@@ -61,18 +61,22 @@ CREATE TABLE user_orders (
 
 INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Matthews Cardenas','matt38','abcd1234','customer');
 INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Kevin Cardenas','kev','abcd1234','manager');
-INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Someone','someone','abcd1234','customer');
+INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Steve','steve00','abcd1234','customer');
 INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Ramsey','ram01','abcd1234','cook');
 INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Mike','mike07','abcd1234','salesperson');
 INSERT INTO users (u_name, username, u_password, u_role) VALUES ('Davey','dav19','abcd1234','delivery');
 
 INSERT INTO restaurants (restaurant_name, manager_id, cook_id, salesperson_id, address, img_src) VALUES ('El Restaurante',2,4,5, '30-49 77th street East Elmhurst', 'https://pbs.twimg.com/profile_images/378800000097312368/ac56ba276bf14ab06d3da5b00c88b151.jpeg');
 
-INSERT INTO registereds (customer_id, customer_name, restaurant_name) VALUES (3, 'Someone','El Restaurante');
+
+INSERT INTO registereds (customer_id, customer_name, restaurant_name) VALUES (3, 'Steve','El Restaurante');
 
 INSERT INTO menus(food_name, restaurant_name, price) VALUES ('fries','El Restaurante',3);
 INSERT INTO menus(food_name, restaurant_name, price) VALUES ('burger','El Restaurante', 6);
 INSERT INTO menus(food_name, restaurant_name, price) VALUES ('soda','El Restaurante',2);
+INSERT INTO menus(food_name, restaurant_name, price) VALUES ('salad','El Restaurante',25);
+INSERT INTO menus(food_name, restaurant_name, price) VALUES ('steak','El Restaurante',35);
+INSERT INTO menus(food_name, restaurant_name, price) VALUES ('pizza','El Restaurante',2);
 
 INSERT INTO supplies(supply_name, restaurant_name, supply_price) VALUES ('potato','El Restaurante',10);
 INSERT INTO supplies(supply_name, restaurant_name, supply_price) VALUES ('buns','El Restaurante', 15);

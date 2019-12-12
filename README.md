@@ -25,3 +25,7 @@ In Github go to the master branch of the repo
 6. Open up another terminal, cd into where the git repo file is, path: "C:\..\SWE\DB_BB"
 - make sure MAMP is on and run the command "node server.js" to start the database
 
+Customer
+  -Creates Order
+  -Registers for Restaurant
+ 

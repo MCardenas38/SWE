@@ -27,6 +27,17 @@ module.exports = function(app){
             res.json(results);
         });
     });
+      app.post("/api/register", function (req, res) {
+    console.log(req);
+    Users.create({
+      u_name: req.body.u_name,
+      username: req.body.username,
+      u_password: req.body.password,
+      u_role: "customer"
+    }).then(function (results) {
+      res.json(results);
+    });
+  });
 
     app.get("/api/restaurant_name",function(req,res){
       Restaurant.findOne({

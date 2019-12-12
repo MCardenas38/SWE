@@ -23,6 +23,17 @@
 .App-link {
   color: #61dafb;
 }
+.signout{
+  margin-left: 1600%;
+}
+
+.signoutbutton{
+  color: white;
+}
+
+.btn{
+  color: white;
+}
 
 @keyframes App-logo-spin {
   from {

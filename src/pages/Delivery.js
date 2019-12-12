@@ -146,7 +146,7 @@ class Customer extends Component{
                                     <tr onClick={()=>this.set_bid(index)}> 
                                         <td>{order.restaurant_name}</td>
                                         <td>{order.address}</td>
-                                        <td>{order.bid_price}</td>
+                                        <td>${order.bid_price}</td>
                                     </tr>
                                 )
                           })): <></>
@@ -173,7 +173,7 @@ class Customer extends Component{
                                   <tr > 
                                     <td>{order.restaurant_name}</td>
                                     <td>{order.address}</td>
-                                    <td>{order.order_id}</td>
+                                    <td>Order ID: {order.order_id}</td>
                                   </tr>
                                 )
                           })): <></>

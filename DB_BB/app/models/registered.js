@@ -3,11 +3,13 @@ var Sequelize = require("sequelize");
 var sequelize = require("../config/connection.js");
 
 var Registered= sequelize.define("registereds",{
-    customer_id: Sequelize.INTEGER,
+    customer_id:{
+         type: Sequelize.INTEGER,
+         primaryKey: true
+        },
     customer_name: Sequelize.STRING,
     restaurant_name:{ 
-        type: Sequelize.STRING,
-        primaryKey: true
+        type: Sequelize.STRING
     },
     approval: Sequelize.BOOLEAN,
 });

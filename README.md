@@ -63,7 +63,7 @@ $ npm start
 - ensure that MAMP is on and run the command ```$ node server.js``` to start the database
 
 #### Example of VSCode and two terminals running
-![VSCodeTerminals](https://i.imgur.com/sILQ7sh.png)]
+![VSCodeTerminals](https://i.imgur.com/sILQ7sh.png)
   
 ## Further help
 

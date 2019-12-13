@@ -63,13 +63,15 @@ $ npm start
 - ensure that MAMP is on and run the command ```$ node server.js``` to start the database
 
 #### Example of VSCode and two terminals running
-[VSCodeTerminals](https://i.imgur.com/sILQ7sh.png)]
+![VSCodeTerminals](https://i.imgur.com/sILQ7sh.png)]
   
 ## Further help
 
 To get more help on ReactJS visit their website and look at their Getting Started navigation: https://reactjs.org/docs/getting-started.html
  
-## > Team
+## Team
 Matthews Cardenas
+
 Angelica Hernandez
+
 William Li

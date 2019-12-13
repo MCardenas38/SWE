@@ -121,7 +121,7 @@ class Login extends Component {
         {this.renderRedirect()}
         <Row>
           <Col>
-            <img src="https://eilonpaz.com/wp-content/uploads/2016/01/Eilon_Paz_0018-853x1280.jpg" alt="fuck" height="70%" width="90%"/>
+            <img src="https://eilonpaz.com/wp-content/uploads/2016/01/Eilon_Paz_0018-853x1280.jpg" height="70%" width="90%"/>
           </Col>
           <Col className="form">
             <FormGroup>
